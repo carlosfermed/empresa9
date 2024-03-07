@@ -119,7 +119,7 @@ public class Bsd {
         String linea="";
         try {            
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/43540246g","root","");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/empresa","root","");
             Statement sentencia=conexion.createStatement();            
             
             ResultSet resultado = sentencia.executeQuery("select * from departamentos");
