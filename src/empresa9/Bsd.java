@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class Bsd {
     
     protected int codigo;
@@ -52,10 +51,7 @@ public class Bsd {
 
     public void setManager(int manager) {
         this.manager = manager;
-    }
-
-    
-    
+    }   
     
     public int modificacion(int codigo, String nombre, int localizacion, int manager){
         int n=0;
@@ -72,15 +68,12 @@ public class Bsd {
         } catch (SQLException ex) {
             Logger.getLogger(Bsd.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return n;
-        
-    }
-    
+        return n;        
+    }    
     
     public int altas (){
         int n=0;
-        try {
-            
+        try {            
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/empresa","root","");
             Statement sentencia=conexion.createStatement();
@@ -90,22 +83,19 @@ public class Bsd {
             n = sentencia.executeUpdate(sql);
             
             sentencia.close();
-            conexion.close ();
-            
+            conexion.close ();            
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Bsd.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Bsd.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return n;
-        
+        return n;        
     }
     
     public int bajas (int codigo){
         int n=0;
-        try {
-            
+        try {            
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/empresa","root","");
             Statement sentencia=conexion.createStatement();
@@ -115,29 +105,22 @@ public class Bsd {
             n = sentencia.executeUpdate(sql);
             
             sentencia.close();
-            conexion.close ();
-            
+            conexion.close ();            
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Bsd.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Bsd.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return n;
-        
-    }
-    
-    
+        return n;        
+    }    
     
     public String listado (){
         String linea="";
-        try {
-            
+        try {            
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/43540246g","root","");
-            Statement sentencia=conexion.createStatement();
-            
-            
+            Statement sentencia=conexion.createStatement();            
             
             ResultSet resultado = sentencia.executeQuery("select * from departamentos");
             
@@ -154,8 +137,6 @@ public class Bsd {
         } catch (SQLException ex) {
             Logger.getLogger(Bsd.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return linea;
-    
-    }
-    
+        return linea;    
+    }    
 }
